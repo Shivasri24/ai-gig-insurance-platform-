@@ -1,5 +1,6 @@
 # ai-gig-insurance-platform-
 # AI-Powered Multi-Risk Parametric Insurance for Gig Workers
+To ensure robustness against large-scale fraud scenarios such as coordinated GPS spoofing attacks, our system implements a multi-layered adversarial defense strategy.
 
  Video link - https://drive.google.com/file/d/1PtfuzlnLMyWSP-rv98va8mjAaZwNFyYQ/view?usp=drivesdk
 

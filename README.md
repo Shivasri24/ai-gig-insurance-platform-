@@ -1,5 +1,8 @@
 # ai-gig-insurance-platform-
 # AI-Powered Multi-Risk Parametric Insurance for Gig Workers
+
+Video link - https://drive.google.com/file/d/1PtfuzlnLMyWSP-rv98va8mjAaZwNFyYQ/view?usp=drivesdk
+
  1. Problem Statement
 
 Gig economy delivery workers such as those working with platforms like Swiggy, Zomato, and Amazon are highly dependent on external environmental conditions for their daily income. Disruptions such as heavy rainfall, extreme heat, and severe air pollution significantly reduce their ability to work, leading to income loss.

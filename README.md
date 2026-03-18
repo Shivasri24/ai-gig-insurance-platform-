@@ -1,7 +1,7 @@
 # ai-gig-insurance-platform-
 # AI-Powered Multi-Risk Parametric Insurance for Gig Workers
 
-Video link - https://drive.google.com/file/d/1PtfuzlnLMyWSP-rv98va8mjAaZwNFyYQ/view?usp=drivesdk
+ Video link - https://drive.google.com/file/d/1PtfuzlnLMyWSP-rv98va8mjAaZwNFyYQ/view?usp=drivesdk
 
  1. Problem Statement
 

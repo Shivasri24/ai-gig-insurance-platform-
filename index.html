@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gig Insurance Pro</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: url("frontendbg.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .box {
+      width: 330px;
+      margin: 60px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    input, button {
+      width: 90%;
+      padding: 10px;
+      margin: 8px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      background: #00c6ff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0072ff;
+    }
+
+    .dashboard { display: none; }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    #map {
+      height: 200px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="box" id="loginBox">
+  <h2><i class="fas fa-user-lock"></i> Login</h2>
+
+  <input type="text" id="username" placeholder="User ID">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- DASHBOARD -->
+<div class="box dashboard" id="dashboard">
+
+  <h2>🚀 Gig Insurance Dashboard</h2>
+
+  <div class="card">
+    <button onclick="getLocation()">📍 Get Location</button>
+    <button onclick="checkPremium()">💰 Check Premium</button>
+    <button onclick="checkClaim()">⚡ Check Claim</button>
+
+    <p id="location"></p>
+    <p id="weather"></p>
+    <p id="premium"></p>
+    <p id="claim"></p>
+  </div>
+
+  <div class="card">
+    <h3>🗺️ Live Map</h3>
+    <div id="map"></div>
+  </div>
+
+</div>
+
+<script>
+
+let currentWeather = "";
+let currentPremium = 0;
+
+// ✅ LOGIN
+function login() {
+  let user = document.getElementById("username").value;
+  let pass = document.getElementById("password").value;
+
+  if(user === "code" && pass === "1234"){
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+  } else {
+    alert("Incorrect password");
+  }
+}
+
+// ✅ LOCATION ONLY
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(function(pos) {
+
+    let lat = pos.coords.latitude;
+    let lon = pos.coords.longitude;
+
+    document.getElementById("location").innerHTML =
+      "Latitude: " + lat + "<br>Longitude: " + lon;
+
+    // MAP
+    var map = L.map('map').setView([lat, lon], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    L.marker([lat, lon]).addTo(map)
+      .bindPopup("🚚 Delivery Person")
+      .openPopup();
+
+    // WEATHER ONLY
+    let conditions = ["Rainy 🌧️", "Sunny ☀️", "Pollution 😷"];
+    currentWeather = conditions[Math.floor(Math.random()*3)];
+
+    document.getElementById("weather").innerHTML =
+      "Condition: " + currentWeather;
+
+    document.getElementById("premium").innerHTML = "";
+    document.getElementById("claim").innerHTML = "";
+  });
+}
+
+// ✅ PREMIUM BUTTON
+function checkPremium() {
+
+  if(currentWeather === ""){
+    alert("Click Get Location first");
+    return;
+  }
+
+  if(currentWeather.includes("Rainy")) currentPremium = 60;
+  else if(currentWeather.includes("Pollution")) currentPremium = 50;
+  else currentPremium = 30;
+
+  document.getElementById("premium").innerHTML =
+    "💰 Premium: ₹ " + currentPremium + " / week";
+}
+
+// ✅ CLAIM BUTTON
+function checkClaim() {
+
+  if(currentWeather === ""){
+    alert("Click Get Location first");
+    return;
+  }
+
+  let claim = "❌ No Claim";
+
+  if(currentWeather.includes("Rainy")){
+    claim = "✅ Claim Triggered (Rain)";
+  }
+  else if(currentWeather.includes("Pollution")){
+    claim = "⚠️ Medium Risk";
+  }
+
+  document.getElementById("claim").innerHTML = claim;
+}
+
+</script>
+
+</body>
+</html>

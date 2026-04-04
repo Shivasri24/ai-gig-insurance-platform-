@@ -2,142 +2,55 @@
 # AI-Powered Multi-Risk Parametric Insurance for Gig Workers
 To ensure robustness against large-scale fraud scenarios such as coordinated GPS spoofing attacks, our system implements a multi-layered adversarial defense strategy.
 
- Video link - https://drive.google.com/file/d/1PtfuzlnLMyWSP-rv98va8mjAaZwNFyYQ/view?usp=drivesdk
+ Video link - https://drive.google.com/file/d/1Zrn90jYQTFxNWIulqSdknLOjwSbBYGph/view?usp=drivesdk
 
- 1. Problem Statement
+ AI-Powered Multi-Risk Parametric Insurance for Gig Workers:
+Problem Statement:
+Gig economy workers, especially delivery partners, face frequent income disruptions due to environmental conditions such as heavy rainfall, extreme heat, and air pollution. Existing insurance systems are not designed to handle real-time risks and often involve slow, manual claim processes. This creates financial instability for workers who depend on daily earnings.
 
-Gig economy delivery workers such as those working with platforms like Swiggy, Zomato, and Amazon are highly dependent on external environmental conditions for their daily income. Disruptions such as heavy rainfall, extreme heat, and severe air pollution significantly reduce their ability to work, leading to income loss.
+Proposed Solution:
+This project presents an AI-powered parametric insurance platform that provides automated financial protection to gig workers. The system continuously monitors environmental conditions, calculates risk levels, and triggers payouts automatically when predefined thresholds are exceeded. This ensures fast, transparent, and reliable support without manual intervention.
 
-Currently, there is no dedicated insurance system that protects gig workers from such unpredictable and uncontrollable disruptions. As a result, workers bear the full financial burden.
- 2. Persona
+System Workflow:
+The user logs into the platform through a secure authentication system.
+The system captures real-time location using GPS.
+Environmental conditions are identified based on the location.
+Risk levels are calculated using predefined logic.
+A weekly premium is generated dynamically.
+If environmental thresholds are exceeded, a claim is triggered automatically.
+The payout is processed instantly without requiring user requests.
 
-Our solution focuses on food delivery partners (e.g., Swiggy/Zomato delivery workers).
+Key Features:
+Secure login system with authentication
+Real-time GPS tracking
+Interactive map integration
+Environmental condition detection
+Dynamic premium calculation
+Automatic claim triggering
+Basic fraud prevention through location validation
 
-These workers:
-- Operate daily and depend on consistent working hours
-- Are highly affected by environmental conditions
-- Have unstable income due to unpredictable disruptions
- 3. Proposed Solution
+Technology Stack:
+Frontend: HTML, CSS, JavaScript
+Backend: Python with Flask
+Map Integration: Leaflet.js
+Data Handling: Simulated environmental data
 
-We propose an AI-powered multi-risk parametric insurance platform that provides income protection to gig workers.
+Fraud Prevention Approach:
+The system verifies user location through GPS tracking.
+Environmental conditions are cross-checked before triggering claims.
+Repeated or abnormal claim patterns can be identified for further validation.
 
-The platform:
-- Covers multiple environmental risks such as rain, heat, and air pollution
-- Uses AI to dynamically calculate weekly premiums
-- Automatically detects disruptions and processes claims
-- Provides instant payouts without manual intervention
+Use Case:
+A delivery worker logs into the system and enables location tracking.
+If the system detects high-risk conditions such as heavy rainfall, the premium is adjusted accordingly.
+If the condition exceeds the defined threshold, a claim is triggered automatically, ensuring immediate financial support.
 
- 4. System Workflow
+Future Enhancements:
+Integration with real-time weather and pollution APIs
+Mobile application development
+Advanced AI-based risk prediction models
+Secure payment gateway integration for instant payouts
+Scalable multi-user deployment
 
-1. User registers on the platform  
-2. System performs AI-based risk analysis  
-3. Weekly premium is generated based on risk level  
-4. Platform continuously monitors real-time environmental data  
-5. When a predefined trigger is detected, a claim is automatically initiated  
-6. Instant payout is processed to the user  
-
----
-
-5. Weekly Premium Model
-
-The platform follows a weekly pricing model aligned with gig workers' earning cycles.
-
-Premium is calculated based on:
-- Location risk level
-- Historical environmental data
-- Predicted future risks
-
-Example:
-- Low-risk area → ₹30/week  
-- Medium-risk area → ₹45/week  
-- High-risk area → ₹60/week  
-
- 6. Parametric Triggers
-
-The system uses predefined thresholds to automatically trigger claims:
-
-- Rainfall > 20mm → Payout triggered  
-- Temperature > 40°C → Payout triggered  
-- AQI > 300 → Payout triggered  
-
-These triggers ensure fast and objective claim processing without manual verification.
-
- 7. AI/ML Integration
-
-Artificial Intelligence is used for:
-
-- Risk prediction based on historical and real-time data  
-- Dynamic premium calculation  
-- Workability Index prediction  
-- Fraud detection using anomaly patterns  
-
-8. Fraud Detection Mechanisms
-
-To ensure system reliability, the following checks are implemented:
-
-- GPS-based location verification  
-- Cross-validation with weather and AQI APIs  
-- Detection of duplicate or abnormal claims  
-- Pattern-based anomaly detection  
-
-9. Key Features
-
-- Multi-risk coverage (Rain, Heat, Pollution)  
-- Workability Index (predicts ability to work)  
-- Earnings Protection Score  
-- Automated claim processing (zero-touch system)  
-- Real-time monitoring and instant payouts  
-
- 10. Technology Stack
-
-- Frontend: React / Flutter  
-- Backend: Python (Flask / FastAPI)  
-- Database: MongoDB  
-- APIs: Weather API, AQI API (or mock APIs)  
-
- 11. Platform Choice
-
-We propose a mobile-friendly web or mobile application, as delivery workers primarily use smartphones, making the system easily accessible and user-friendly.
-
- 12. Adversarial Defense & Anti-Spoofing Strategy
-
-To handle large-scale fraud scenarios such as coordinated GPS spoofing attacks, our system incorporates multiple layers of intelligent fraud detection and prevention.
-
- 1. GPS Spoofing Detection
-- Compare GPS data with device movement patterns (speed, consistency)
-- Detect unrealistic jumps in location
-- Validate location against network/IP-based geolocation
-
-2. Behavioral Pattern Analysis
-- Identify abnormal claim frequency
-- Detect users claiming payouts repeatedly in short durations
-- Monitor unusual working patterns compared to historical behavior
-
- 3. Cross-Verification with External Data
-- Match user location with weather and AQI data
-- If no disruption exists in that location, claims are flagged
-- Use multiple APIs to avoid single-source manipulation
-
- 4. Fraud Ring Detection
-- Identify clusters of users claiming from the same location simultaneously
-- Detect similar behavior patterns across multiple accounts
-- Flag coordinated claims using anomaly detection models
-
-5. Trust Scoring System
-- Assign each user a trust score based on behavior
-- High-risk users undergo stricter validation
-- Low-risk users get seamless claim processing
-  6. Protecting Genuine Users
-- Avoid instant blocking; use warning and verification layers
-- Allow manual review for flagged claims
-- Ensure minimal disruption to honest workers
-
- 7. Adaptive AI Monitoring
-- Continuously learn from new fraud patterns
-- Update detection rules dynamically
-
-This multi-layered approach ensures strong fraud prevention while maintaining a smooth experience for genuine users.
-
-13. Conclusion
-
-This solution leverages AI, real-time data, and parametric insurance principles to provide a scalable and efficient income protection system for gig workers. It ensures financial stability and reduces the economic impact of environmental disruptions.
+Conclusion
+This project demonstrates how AI and parametric insurance can be combined to create a fast, efficient, and scalable solution for gig workers. It reduces dependency on manual processes and ensures timely financial protection against environmental risks.
